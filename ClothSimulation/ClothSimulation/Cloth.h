@@ -64,6 +64,8 @@ public:
 	//this checks collision with the cloth and another object
 	void ballCollision(const Vec3 center, const float radius);
 
+	void cubeCollision(const Vec3 center, const float radius);
+
 	// this makes it so all of the cloth particles are movable so it will drop to the floor
 	void dropCloth();
 

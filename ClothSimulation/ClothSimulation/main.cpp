@@ -16,6 +16,9 @@ Cloth* cloth1;
 Vec3 ball_pos(7, -5, 0);
 float ball_radius = 2;
 
+Vec3 cubePos(7, -5, 0);
+float cubeSize = 5;
+
 //setting the floor position and size
 Vec3 floorPos(8, -70, 4);
 float floorRadius = 55;
@@ -24,6 +27,7 @@ Vec3 windForceToApply= Vec3(0.5f, 0, 0.2f);
 
 //various bool checks
 bool ballCollision;
+bool cubeCollision;
 bool ballMove;
 bool addForce;
 bool addWind;
@@ -86,6 +90,8 @@ void Render()
 	glutSolidSphere(floorRadius - 0.1, 50, 50);
 	glPopMatrix();
 
+
+	glPushMatrix();
 	//create and render the ball using older opengl practices
 	//set the balls position
 	glTranslatef(ball_pos.f[0], ball_pos.f[1], ball_pos.f[2]);
@@ -93,6 +99,14 @@ void Render()
 	glColor3f(0.4f, 0.8f, 0.5f);
 	//render a sphere with glut
 	glutSolidSphere(ball_radius - 0.1, 50, 50);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(ball_pos.f[0], ball_pos.f[1], ball_pos.f[2]);
+	glColor3f(0.4f, 0.8f, 0.5f);
+	//render a sphere with glut
+	glutSolidCube(cubeSize);
+	glPopMatrix();
 
 	glutSwapBuffers();
 	glutPostRedisplay();
